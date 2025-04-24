@@ -18,9 +18,9 @@ If you wish to install all the programs at once, run the install-all.sh script (
 
 To run the script, there are a few ways. Probably the easiest is to right-click on the directory with the scripts and installers, then select 'Open in Terminal'.
 
-Once you're in the terminal, type sh followed by the name of the script you want to . For example:
+Once you're in the terminal, type bash followed by the name of the script you want to . For example:
 
-```sh install-all.sh```
+```bash install-all.sh```
 
 # IMPORTANT #
 If you get the following error:

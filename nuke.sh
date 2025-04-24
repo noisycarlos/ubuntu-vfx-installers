@@ -56,12 +56,12 @@ for variation in "${variations[@]}"; do
   Version=1.0
   Terminal=false
   Type=Application
-  Name=${name}
+  Name=${name} ${version}
   Exec=${nuke_install_basepath}/${installation_dir_name}/Nuke${vnum} ${flag}
-  Icon=${nuke_install_basepath}/nuke.png" >${shortcut_filename}.desktop
+  Icon=${nuke_install_basepath}/nuke.png" >${shortcut_filename}_${vnum}.desktop
 done
 
-echo "--- Cleanup..."
+# echo "--- Cleanup..."
 # if [ "${delete_installer}" = 1 ]; then
 #   echo "deleting downloaded installer..."
 #   rm ${installer_path}
