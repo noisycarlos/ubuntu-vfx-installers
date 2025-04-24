@@ -26,7 +26,7 @@ Unzip the downloaded files and place the installers that you want inside the rep
 ### Step 4 ###
 If you wish to install all the programs at once, run the install-all.sh script (it will only install the apps for which you placed an installer). Otherwise, use the individual script for each application.
 
-To run the script, there are a few ways. Probably the easiest is to right-click on the directory with the scripts and installers, then select 'Open in Terminal'.
+If you're new to Linux, there are a few ways to run the script. Probably the easiest is to right-click on the directory with the scripts and installers, then select 'Open in Terminal'.
 
 Once you're in the terminal, type bash followed by the name of the script you want to . For example:
 
