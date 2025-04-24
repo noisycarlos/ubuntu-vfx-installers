@@ -1,22 +1,29 @@
 #!/bin/bash
 
 icon_url="https://f000.backblazeb2.com/file/vfx-installers/nuke.png"
+app_name="Nuke"
 
 # installer_path=$(find . -maxdepth 1 -type f -name 'Nuke*-linux-x86_64.run')
 installer_path=$(find . -maxdepth 1 -type f -name 'Nuke*-linux-x86_64.run' | sort -V | tail -n 1)
+
+if [ ! -f "$installer_path" ]; then
+  echo "--- Skipping installation of ${app_name}, no installers found."
+  exit 1
+fi
+
 version=$(echo ${installer_path} | sed -n 's/.\/Nuke\([0-9.v]*\)-linux-x86_64.run/\1/p')
 
 nuke_install_basepath=/usr/bin/Nuke
 installation_dir_name=Nuke${version}
 vnum="${version%%v*}"
 
-echo "--- Installing Nuke version ${version} - ${installer_path}..."
+echo "--- Installing ${app_name} version ${version} - ${installer_path}..."
 echo "--- ${vnum} - ${installation_dir_name}"
 
 sudo chmod +x ${installer_path}
 sudo ${installer_path} --accept-foundry-eula
 
-echo "Moving application to bin directory..."
+echo "--- Moving application to bin directory..."
 if [ ! -d "${nuke_install_basepath}" ]; then
   sudo mkdir ${nuke_install_basepath} >/dev/null
 fi
@@ -27,7 +34,7 @@ sudo mv ./${installation_dir_name} ${nuke_install_basepath}/
 curl -sS -# -o ./nuke.png ${icon_url}
 sudo mv nuke.png ${nuke_install_basepath}/nuke.png
 
-echo "Creating Application shortcuts..."
+echo "--- Creating Application shortcuts..."
 sudo mkdir -p ~/.local/share/applications/
 sudo chmod -R 777 ~/.local/share/applications/
 cd ~/.local/share/applications/
@@ -54,7 +61,7 @@ for variation in "${variations[@]}"; do
   Icon=${nuke_install_basepath}/nuke.png" >${shortcut_filename}.desktop
 done
 
-echo "Cleanup..."
+echo "--- Cleanup..."
 # if [ "${delete_installer}" = 1 ]; then
 #   echo "deleting downloaded installer..."
 #   rm ${installer_path}
@@ -62,4 +69,4 @@ echo "Cleanup..."
 # else
 #   echo "leaving previously-existing installer in place..."
 # fi
-echo "${app_name} installation script finished"
+echo "--- Finished installing ${app_name}"
