@@ -1,3 +1,5 @@
+# VFX Installers for Ubuntu #
+
 This repository contains scripts to install Nuke, Resolve, and Fusion. These programs are commonly used in Visual Effects and post-production. However they're not particularly easy to install in Linux because they're not distributed as standard Linux installer files (deb, rpm, flatpak, etc).
 
 ## Instructions ##
