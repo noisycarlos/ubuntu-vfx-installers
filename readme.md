@@ -1,5 +1,3 @@
-# VFX Installers for Ubuntu #
-
 This repository contains scripts to install Nuke, Resolve, and Fusion. These programs are commonly used in Visual Effects and post-production. However they're not particularly easy to install in Linux because they're not distributed as standard Linux installer files (deb, rpm, flatpak, etc).
 
 ## Instructions ##
@@ -12,7 +10,13 @@ Download the Linux installers for the apps you wish to install from their respec
 - [Resolve](https://www.blackmagicdesign.com/products/davinciresolve)
 - [Fusion](https://www.blackmagicdesign.com/products/fusion)
 ### Step 3 ###
-Unzip the downloaded files and place the installers (they should have a .run extension) inside the repository directory, next to the scripts. Make sure you don't change the file name. Just unzip it.
+Unzip the downloaded files and place the installers that you want inside the repository directory, next to the scripts.
+
+##### Things to check: #####
+- All the installers should have a .run extension
+- Make sure you don't change the file names from the compressed file. Just uncompress it to the directory. 
+- The Fusion package contains two .run files. Make sure you use the one that says 'Studio', not the one that says 'Render Node'. For example:  ```Blackmagic_Fusion_Studio_Linux_19.1.4_installer.run```
+
 ### Step 4 ###
 If you wish to install all the programs at once, run the install-all.sh script (it will only install the apps for which you placed an installer). Otherwise, use the individual script for each application.
 
@@ -42,4 +46,3 @@ sudo apt install gdm3
 ```
 
 (solution from [askubuntu.com](https://askubuntu.com/questions/1525899/cannot-login-to-gui-on-ubuntu-24-04-after-installing-fuse) )
-
