@@ -1,6 +1,5 @@
 #!/bin/bash
 
-icon_url="https://f000.backblazeb2.com/file/vfx-installers/nuke.png"
 app_name="Nuke"
 
 # installer_path=$(find . -maxdepth 1 -type f -name 'Nuke*-linux-x86_64.run')
@@ -31,8 +30,7 @@ fi
 sudo rm -r ${nuke_install_basepath}/${installation_dir_name}
 sudo mv ./${installation_dir_name} ${nuke_install_basepath}/
 
-curl -sS -# -o ./nuke.png ${icon_url}
-sudo mv nuke.png ${nuke_install_basepath}/nuke.png
+sudo cp ./nuke.png ${nuke_install_basepath}/nuke.png
 
 echo "--- Creating Application shortcuts..."
 sudo mkdir -p ~/.local/share/applications/
