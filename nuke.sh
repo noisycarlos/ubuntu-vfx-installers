@@ -50,13 +50,13 @@ for variation in "${variations[@]}"; do
   shortcut_filename=$(echo "${name}_${version}" | tr -d ' .')
 
   echo "#!/usr/bin/env xdg-open
-  [Desktop Entry]
-  Version=1.0
-  Terminal=false
-  Type=Application
-  Name=${name} ${version}
-  Exec=${nuke_install_basepath}/${installation_dir_name}/Nuke${vnum} ${flag}
-  Icon=${nuke_install_basepath}/nuke.png" >${shortcut_filename}.desktop
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=${name} ${version}
+Exec=${nuke_install_basepath}/${installation_dir_name}/Nuke${vnum} ${flag}
+Icon=${nuke_install_basepath}/nuke.png" >${shortcut_filename}.desktop
 done
 
 # echo "--- Cleanup..."
